@@ -18,21 +18,9 @@ public class Calculator {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         String[] input_Receiver = input.split(" ");
-        if (input_Receiver.length > 3) {
-            throw new Exception("Only one operator and two operands are allowed!");
-        }
         if (input_Receiver.length < 3) {
             throw new ArrayIndexOutOfBoundsException("Only one operator and two operands are allowed!");
         }
-        if (!RomanNumbers.containsKey(input_Receiver[0]) | !RomanNumbers.containsKey(input_Receiver[2])) {
-            for (Map.Entry<String, Integer> entry : RomanNumbers.entrySet()) {
-                String keys = entry.getKey();
-                int values = entry.getValue();
-                System.out.println(keys + " = " + values);
-            }
-            throw new NumberFormatException("Only the following Roman numerals are allowed");
-        }
-
         if (RomanNumbers.containsKey(input_Receiver[0]) & RomanNumbers.containsKey(input_Receiver[2])) {
             switch (input_Receiver[1]) {
                 case "+" -> {
